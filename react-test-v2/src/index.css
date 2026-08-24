@@ -116,3 +116,13 @@ input {
   border: 1px solid var(--accent-border);
   margin: 10px;
 }
+
+/* Segment added to play a fading animation for the background color of any segment */
+@keyframes blink-bg {
+  0% { background-color: var(--accent); }
+  100% { background-color: var(--accent-bg); }
+}
+
+.blink-background {
+  animation: blink-bg 1s ease-out;
+}

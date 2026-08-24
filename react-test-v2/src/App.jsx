@@ -5,29 +5,31 @@ import heroImg from './assets/hero.png'
 import './App.css'
 import EmployeeDetails from "./EmployeeDetails.jsx";
 
-function printSubmittedData(employeeData)
-{
-  if (employeeData)
-  {
-    return <div>
-      <h3>Data received in App.jsx:</h3>
-      <p>ID: {employeeData.emp_id}</p>
-      <p>Email: {employeeData.emp_email}</p>
-      <p>Phone: {employeeData.emp_phone}</p>
-    </div>
-  }
-}
-
 function App() {
   const [count, setCount] = useState(0)
   const [employeeData, setEmployeeData] = useState([null])
   const [hasSubmitted, setHasSubmitted] = useState(false)
+  const [submitCount, setSubmitCount] = useState(0);
   
   const handleEmployeeSubmit = (data) => {
     console.log('Received data from child form : ', data);
     setEmployeeData(data);
     setHasSubmitted(true);
+    setSubmitCount(prev => prev + 1);
   };
+
+  function printSubmittedData(employeeData)
+  {
+    if (employeeData)
+    {
+      return <div className="blink-background" key={submitCount}>
+        <h3>Data received in App.jsx:</h3>
+        <p>ID: {employeeData.emp_id}</p>
+        <p>Email: {employeeData.emp_email}</p>
+        <p>Phone: {employeeData.emp_phone}</p>
+      </div>
+    }
+  }
 
   return (
     <>

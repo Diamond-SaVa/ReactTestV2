@@ -105,6 +105,9 @@ class EmployeeDetails extends Component {
         )
     }
     
+    /* componentWillMount has been deprecated and now only componentDidMount works properly. */
+
+    // Effects taking place Post-Mounting 
     componentDidMount() 
     {
         this.props.name = "MOUNTED CORRECTLY"
