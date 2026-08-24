@@ -4,6 +4,7 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import EmployeeDetails from "./EmployeeDetails.jsx";
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,6 +34,11 @@ function App() {
 
   return (
     <>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </HashRouter>
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
